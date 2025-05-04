@@ -1,0 +1,225 @@
+"use client";
+import { useMemo } from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { CalendarIcon, Linkedin, Github, Mail } from "lucide-react";
+
+// Hero Section
+function Hero() {
+  return (
+    <section className="min-h-screen flex flex-col items-center justify-center text-white text-center px-6 bg-black bg-[url('/stars-bg.svg')] bg-cover">
+      <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">Aditya Chaudhari</h1>
+      <p className="mt-4 text-xl md:text-2xl text-indigo-300">Senior Software Engineer 🚀 | Explorer of the Digital Galaxy</p>
+      <p className="mt-2 max-w-2xl text-indigo-200">
+        Passionate software engineer with a proven track record in driving business success through innovative tech solutions. Led major brand unification saving over $25M, improved build times by 75%, and optimized infrastructure for scalability and cost-efficiency.
+        <br />
+        <span className="text-indigo-400">Worked with brands like Bluehost, HostGator, Network Solutions, Register.com, Domain.com, and BigRock.</span>
+      </p>
+      <div className="mt-6 flex gap-4 text-indigo-300">
+        <a href="https://linkedin.com/in/adityachaudhari" target="_blank" aria-label="LinkedIn" className="hover:text-indigo-400"><Linkedin /></a>
+        <a href="https://github.com/aditya-chaudhari" target="_blank" aria-label="GitHub" className="hover:text-indigo-400"><Github /></a>
+        <a href="mailto:hello@adityachaudhari.com" className="hover:text-indigo-400"><Mail /></a>
+      </div>
+    </section>
+  );
+}
+
+// Navigation Bar
+function Navbar() {
+  return (
+    <nav className="fixed top-0 left-0 w-full bg-black/70 backdrop-blur-md text-white z-50 shadow-md">
+      <ul className="flex justify-center gap-6 py-4 text-sm md:text-base">
+        <li><a href="#skills" className="hover:text-indigo-300">Skills</a></li>
+        <li><a href="#timeline" className="hover:text-indigo-300">Timeline</a></li>
+        <li><a href="#projects" className="hover:text-indigo-300">Projects</a></li>
+        <li><a href="#reading" className="hover:text-indigo-300">Reading</a></li>
+        <li><a href="#contact" className="hover:text-indigo-300">Contact</a></li>
+      </ul>
+    </nav>
+  );
+}
+
+// Skills & Tools
+function Skills() {
+  const skills = [
+    "Java", "SpringBoot", "React", "Node.js", "MySQL", "MongoDB", "Docker", "Kubernetes",
+    "AWS", "Jenkins", "Git", "Hibernate", "Webpack", "Liquibase", "Veracode", "Postman",
+    "Cloudflare", "DynamoDB", "CI/CD", "XMatters", "OKD"
+  ];
+  return (
+    <section id="skills" className="text-white py-20 bg-gradient-to-b from-black via-indigo-900 to-black">
+      <h2 className="text-3xl font-bold text-center mb-10">🛠️ Skills & Tools</h2>
+      <div className="flex flex-wrap justify-center gap-4 px-6">
+        {skills.map((skill, i) => (
+          <div
+            key={i}
+            className="px-4 py-2 border border-indigo-400 rounded-full bg-white/10 text-indigo-100 shadow hover:scale-105 transition"
+          >
+            {skill}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// Projects in Progress
+function Projects() {
+
+  const projects = [
+    { 
+      title: "Domain Guru", 
+      desc: "Developed a web app with 4 Micro Frontends (MFE) that allows users to buy domains and complete payments. Utilized Docker and Kubernetes for orchestration." 
+    },
+    { 
+      title: "Insignia Loyalty Experience", 
+      desc: "Built a microservice solution to enhance user engagement, featuring a customizable dashboard for campaigns and addressing customer pain points." 
+    },
+    { 
+      title: "ServerSentEvents (SSE) Microservice", 
+      desc: "Created a microservice implementing real-time text streaming using SSE protocol, event-driven architecture, and pub-sub for scalability." 
+    },
+    { 
+      title: "Auth Service", 
+      desc: "Built a secure auth service using JWT, OAuth, and 2FA for credential management, and automated migration for legacy users." 
+    },
+    { 
+      title: "Invoicing Service", 
+      desc: "Developed a service for managing client payments and generating invoices with automatic payment reminders and multiple templates." 
+    }];
+
+  return (
+    <section id="projects" className="text-white py-20 px-6 bg-black">
+      <h2 className="text-3xl font-bold text-center mb-10">🪐 Space Missions</h2>
+      <div className="grid md:grid-cols-2 gap-6">
+        {projects.map((proj, i) => (
+          <Card key={i} className="bg-indigo-900/20 border border-indigo-500 text-white rounded-xl shadow-xl p-4">
+            <CardContent>
+              <h3 className="text-xl font-semibold mb-2">{proj.title}</h3>
+              <p className="text-indigo-300">{proj.desc}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// Books & Research Section
+function ReadingLog() {
+  const books = [
+    "Clean Architecture by Robert C. Martin",
+    "Designing Data-Intensive Applications by Martin Kleppmann",
+    "Rules, No Rules by Reed Hastings & Erin Meyer",
+    "The Effective Engineer by Edmond Lau",
+    "Google File System by Sanjay Ghemawat"
+  ];
+  return (
+    <section id="reading" className="text-white py-20 px-6 bg-gradient-to-b from-black to-indigo-900">
+      <h2 className="text-3xl font-bold text-center mb-10">📚 Books & Research</h2>
+      <ul className="list-disc list-inside max-w-xl mx-auto space-y-3 text-indigo-200">
+        {books.map((item, i) => <li key={i}>{item}</li>)}
+      </ul>
+    </section>
+  );
+}
+
+// Career Timeline Component
+function CareerTimeline() {
+  const timeline = [
+    { year: "2018", role: "Android Intern at Lembark Solutions", color: "from-blue-500 to-indigo-500" },
+    { year: "2020", role: "Software Developer Intern at Endurance International Group", color: "from-purple-500 to-pink-500" },
+    { year: "2021", role: "Full Stack Engineer at Newfold Digital", color: "from-green-500 to-teal-500" },
+    { year: "2022", role: "Software Development Engineer II at Newfold Digital", color: "from-yellow-500 to-orange-500" },
+    { year: "2023", role: "Senior Software Engineer at Newfold Digital", color: "from-red-500 to-yellow-500" }
+  ];
+
+  const memoizedTimeline = useMemo(() =>
+    timeline.map((event, i) => {
+      let icon = "🚀";
+      if (event.role.toLowerCase().includes("intern")) icon = "🛰️";
+      else if (event.role.toLowerCase().includes("engineer")) icon = "🛠️";
+
+      return (
+        <motion.div
+          key={i}
+          className="relative before:absolute before:w-3 before:h-3 before:rounded-full before:bg-yellow-400 before:left-[-1.15rem] before:top-1"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.1 }}
+        >
+          <span className="text-sm text-indigo-300 font-mono">{event.year}</span>
+          <p className="text-base font-medium text-white mt-1 flex items-center gap-2">
+            <span className="text-lg">{icon}</span> {event.role}
+          </p>
+        </motion.div>
+      );
+    }),
+    [timeline]
+  );
+
+  return (
+    <motion.div
+      id="timeline"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="relative mt-16 z-10"
+    >
+      <Card className="bg-gradient-to-r from-indigo-800/30 to-indigo-900/10 border border-white/10 text-white rounded-2xl shadow-xl backdrop-blur-md p-6">
+        <CardContent>
+          <div className="flex items-center gap-3 mb-6">
+            <CalendarIcon className="text-yellow-300 animate-pulse" />
+            <h2 className="text-2xl font-bold text-indigo-100 tracking-wide">Career Timeline</h2>
+          </div>
+          <div className="relative border-l-2 border-indigo-500 pl-6 space-y-8">
+            {memoizedTimeline.length > 0 ? memoizedTimeline : <p className="text-indigo-300">🚧 No timeline data available.</p>}
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" className="text-white py-20 bg-black text-center">
+      <h2 className="text-3xl font-bold mb-6">📬 Get In Touch</h2>
+      <p className="text-indigo-300 mb-4">Reach out via email or LinkedIn to discuss opportunities, collaborations, or just to say hi!</p>
+      <div className="flex justify-center gap-6 text-indigo-300">
+        <a href="mailto:hello@adityachaudhari.com" className="hover:text-indigo-500"><Mail /> Email</a>
+        <a href="https://linkedin.com/in/adityachaudhari" target="_blank" className="hover:text-indigo-500"><Linkedin /> LinkedIn</a>
+        <a href="https://github.com/aditya-chaudhari" target="_blank" className="hover:text-indigo-500"><Github /> GitHub</a>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="text-indigo-400 text-sm text-center py-6 bg-black border-t border-white/10">
+      <p>Made with 🌌 by Aditya Chaudhari</p>
+    </footer>
+  );
+}
+
+
+
+// Full Portfolio Page
+export default function Portfolio() {
+  return (
+  <div className="bg-black min-h-screen relative">
+    {/* Starry Background */}
+    <div className="starry-background"></div>
+      <Navbar />
+      <Hero />
+      <Skills />
+      <CareerTimeline />
+      <Projects />
+      <ReadingLog />
+      <Contact />
+      <Footer />
+    </div>
+  );
+}

@@ -1,0 +1,266 @@
+"use client";
+import { motion } from "framer-motion";
+import Head from "next/head";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { Card, CardContent } from "@/components/ui/card";
+
+function Navbar() {
+  return (
+    <nav className="fixed top-0 left-0 w-full bg-black/70 backdrop-blur-md text-white z-50 shadow-md">
+      <ul className="flex justify-center gap-6 py-4 text-sm md:text-base">
+        {["Skills", "Timeline", "Projects", "Reading", "Contact"].map((item) => (
+          <li key={item}>
+            <a href={`#${item.toLowerCase()}`} className="hover:text-indigo-300">
+              {item}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="min-h-screen flex flex-col items-center justify-center text-white text-center px-6 bg-black bg-[url('/stars-bg.svg')] bg-cover bg-center bg-fixed">
+      <motion.h1
+        className="text-4xl md:text-6xl font-extrabold leading-tight"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
+        Aditya Chaudhari
+      </motion.h1>
+      <motion.p
+        className="mt-4 text-xl md:text-2xl text-indigo-300"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+      >
+        Senior Software Engineer 🚀 | Explorer of the Digital Galaxy
+      </motion.p>
+      <motion.p
+        className="mt-2 max-w-2xl text-indigo-200"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+      >
+        Passionate software engineer with a proven track record in driving business success through innovative tech solutions. Led major brand unification saving over $25M, improved build times by 75%, and optimized infrastructure for scalability and cost-efficiency.
+        <br />
+        <span className="text-indigo-400">
+          Worked with brands like Bluehost, HostGator, Network Solutions, Register.com, Domain.com, and BigRock.
+        </span>
+      </motion.p>
+
+      <motion.div
+        className="mt-6 flex gap-6 text-indigo-300 text-2xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
+      >
+        <a href="https://linkedin.com/in/adityachaudhari" target="_blank" aria-label="LinkedIn" className="hover:text-indigo-400">
+          <FaLinkedin />
+        </a>
+        <a href="https://github.com/aditya-chaudhari" target="_blank" aria-label="GitHub" className="hover:text-indigo-400">
+          <FaGithub />
+        </a>
+        <a href="mailto:hello@adityachaudhari.com" aria-label="Email" className="hover:text-indigo-400">
+          <FaEnvelope />
+        </a>
+      </motion.div>
+
+      <motion.a
+        href="/resume.pdf"
+        target="_blank"
+        className="mt-8 inline-block px-6 py-3 text-indigo-300 border border-indigo-500 rounded-full hover:bg-indigo-600 hover:text-white transition-all"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.1, duration: 0.5 }}
+      >
+        📄 View Resume
+      </motion.a>
+    </section>
+  );
+}
+
+function Skills() {
+  const skills = [
+    "Java", "SpringBoot", "React", "Node.js", "MySQL", "MongoDB", "Docker", "Kubernetes",
+    "AWS", "Jenkins", "Git", "Hibernate", "Webpack", "Liquibase", "Veracode", "Postman",
+    "Cloudflare", "DynamoDB", "CI/CD", "XMatters", "OKD"
+  ];
+  return (
+    <section id="skills" className="text-white py-20 bg-gradient-to-b from-black via-indigo-900 to-black">
+      <h2 className="text-3xl font-bold text-center mb-10">🛠️ Skills & Tools</h2>
+      <div className="flex flex-wrap justify-center gap-4 px-6">
+        {skills.map((skill, i) => (
+          <div key={i} className="px-4 py-2 border border-indigo-400 rounded-full bg-white/10 text-indigo-100 shadow hover:scale-105 transition">
+            {skill}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Projects() {
+  const projects = [
+    {
+      title: "Domain Guru",
+      desc: "Developed a web app with 4 Micro Frontends (MFE) that allows users to buy domains and complete payments. Utilized Docker and Kubernetes for orchestration."
+    },
+    {
+      title: "Insignia Loyalty Experience",
+      desc: "Built a microservice solution to enhance user engagement, featuring a customizable dashboard for campaigns and addressing customer pain points."
+    },
+    {
+      title: "ServerSentEvents (SSE) Microservice",
+      desc: "Created a microservice implementing real-time text streaming using SSE protocol, event-driven architecture, and pub-sub for scalability."
+    },
+    {
+      title: "Auth Service",
+      desc: "Built a secure auth service using JWT, OAuth, and 2FA for credential management, and automated migration for legacy users."
+    },
+    {
+      title: "Invoicing Service",
+      desc: "Developed a service for managing client payments and generating invoices with automatic payment reminders and multiple templates."
+    }
+  ];
+
+  return (
+    <section id="projects" className="text-white py-20 px-6 bg-black">
+      <h2 className="text-3xl font-bold text-center mb-10">🪐 Space Missions</h2>
+      <div className="grid md:grid-cols-2 gap-6">
+        {projects.map((proj, i) => (
+          <Card
+            key={i}
+            className="bg-indigo-900/20 border border-indigo-500 text-white rounded-xl shadow-xl p-4 hover:shadow-indigo-500/20 hover:scale-[1.02] transition-all duration-300"
+          >
+            <CardContent>
+              <h3 className="text-xl font-semibold mb-2">{proj.title}</h3>
+              <p className="text-indigo-300">{proj.desc}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CareerTimeline() {
+  const timeline = [
+    { year: "2018", role: "Android Intern at Lembark Solutions" },
+    { year: "2020", role: "Software Developer Intern at Endurance International Group" },
+    { year: "2021", role: "Full Stack Engineer at Newfold Digital" },
+    { year: "2022", role: "Software Development Engineer II at Newfold Digital" },
+    { year: "2023", role: "Senior Software Engineer at Newfold Digital" }
+  ];
+
+  return (
+    <motion.div
+      id="timeline"
+      className="relative mt-16 z-10 bg-gradient-to-r from-indigo-800/30 to-indigo-900/10 border border-white/10 text-white rounded-2xl shadow-xl backdrop-blur-md p-8"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1 }}
+    >
+      <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-indigo-500/30" />
+      <h2 className="text-2xl font-bold text-indigo-100 tracking-wide">Career Timeline</h2>
+      <div className="relative mt-6 space-y-6">
+        {timeline.map((event, i) => {
+          const icon = event.role.includes("Intern") ? "🛰️" : "🛠️";
+          return (
+            <motion.div
+              key={i}
+              className="relative flex items-start pl-8"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-yellow-400" />
+              <div>
+                <span className="text-lg font-semibold text-indigo-100">{event.year}</span>
+                <p className="text-base font-medium text-white mt-1 flex items-center gap-2">
+                  <span className="text-xl">{icon}</span> {event.role}
+                </p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </motion.div>
+  );
+}
+
+function Interests() {
+  const interests = [
+    { name: "Quantum Computing", description: "Exploring how quantum algorithms can revolutionize data processing and encryption." },
+    { name: "Neuroscience & Brain Studies", description: "Understanding the human brain's mechanics and how it can inspire AI models." },
+    { name: "Space Exploration", description: "Following the latest advancements in space technology and imagining the future of human life beyond Earth." },
+    { name: "Psychology", description: "Studying human behavior and cognitive processes, with a focus on AI’s role in decision-making." }
+  ];
+
+  return (
+    <section id="reading" className="text-white py-16 px-6 bg-gradient-to-b from-black to-indigo-900">
+      <h2 className="text-4xl font-semibold text-center mb-8 text-indigo-200 tracking-wide">🔭 Interests & Passions</h2>
+      <ul className="list-disc list-inside max-w-4xl mx-auto space-y-6 text-indigo-200 text-lg">
+        {interests.map((interest, i) => (
+          <li key={i} className="font-medium">
+            <strong>{interest.name}</strong>: {interest.description}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" className="text-white py-20 bg-black text-center">
+      <h2 className="text-3xl font-bold mb-6">📬 Get In Touch</h2>
+      <p className="text-indigo-300 mb-4">Reach out via email or LinkedIn to discuss opportunities, collaborations, or just to say hi!</p>
+      <div className="flex flex-col sm:flex-row justify-center gap-6 text-indigo-300">
+        <a href="mailto:hello@adityachaudhari.com" className="hover:text-indigo-500 flex items-center justify-center">
+          <FaEnvelope className="mr-2" size={24} /> Email
+        </a>
+        <a href="https://linkedin.com/in/adityachaudhari" target="_blank" className="hover:text-indigo-500 flex items-center justify-center">
+          <FaLinkedin className="mr-2" size={24} /> LinkedIn
+        </a>
+        <a href="https://github.com/aditya-chaudhari" target="_blank" className="hover:text-indigo-500 flex items-center justify-center">
+          <FaGithub className="mr-2" size={24} /> GitHub
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="text-indigo-400 text-sm text-center py-6 bg-black border-t border-white/10">
+      <p>Made with 🌌 by Aditya Chaudhari</p>
+    </footer>
+  );
+}
+
+export default function Portfolio() {
+  return (
+    <>
+      <Head>
+        <title>Aditya Chaudhari | Portfolio</title>
+        <meta name="description" content="Senior Software Engineer portfolio showcasing projects, skills, and career timeline." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="bg-black min-h-screen relative">
+        <Navbar />
+        <Hero />
+        <Skills />
+        <CareerTimeline />
+        <Projects />
+        <Interests />
+        <Contact />
+        <Footer />
+      </div>
+    </>
+  );
+}

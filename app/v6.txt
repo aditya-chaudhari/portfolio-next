@@ -63,19 +63,9 @@ function Hero() {
     <section
       className="min-h-screen flex flex-col items-center justify-center text-white text-center px-6 bg-black bg-[url('/stars-bg.svg')] bg-cover bg-center bg-fixed relative overflow-hidden"
     >
-     <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: [20, 0, 20], opacity: 1 }}
-        transition={{ duration: 3, repeat: Infinity }}
-        className="z-10 w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] xl:w-[400px] drop-shadow-lg"
-      >
-        <Lottie
-          animationData={rocketAnim}
-          loop
-          className="w-full h-full"
-          style={{ filter: "drop-shadow(0 0 10px rgba(129, 140, 248, 0.6))" }} // Indigo glow
-        />
-      </motion.div>
+      <div style={{ width: "300px", height: "300px" }}>
+        <Lottie animationData={rocketAnim} loop={true} />
+      </div>
 
       <motion.h1
         className="text-4xl md:text-6xl font-extrabold leading-tight"
