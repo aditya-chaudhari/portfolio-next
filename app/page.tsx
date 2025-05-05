@@ -11,37 +11,6 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import rocketAnim from '../public/lotties/rocket.json';
 import astronautAnim from '../public/lotties/astronaut.json';
 
-
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
-
-
-function TechRadar() {
-  const data = [
-    { subject: "React", A: 120 },
-    { subject: "Next.js", A: 110 },
-    { subject: "Node.js", A: 100 },
-    { subject: "TypeScript", A: 130 },
-    { subject: "Python", A: 90 },
-    { subject: "MongoDB", A: 85 },
-  ];
-  return (
-    <section className="py-20 bg-gradient-to-b from-black to-indigo-900 text-white text-center">
-      <h2 className="text-4xl font-bold mb-6">🧭 Tech Radar</h2>
-      <p className="text-indigo-300 mb-8">A radar view of my core technologies</p>
-
-      <div className="w-full max-w-3xl mx-auto h-96">
-        <ResponsiveContainer width="100%" height="100%">
-          <RadarChart outerRadius="80%" data={data}>
-            <PolarGrid stroke="#666" />
-            <PolarAngleAxis dataKey="subject" tick={{ fill: "white" }} />
-            <PolarRadiusAxis angle={30} domain={[0, 150]} />
-            <Radar name="Skill" dataKey="A" stroke="#818CF8" fill="#818CF8" fillOpacity={0.6} />
-          </RadarChart>
-        </ResponsiveContainer>
-      </div>
-    </section>
-  );
-}
 function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-black/70 backdrop-blur-md text-white z-50 shadow-md">
@@ -344,7 +313,6 @@ export default function Portfolio() {
         <Skills />
         <CareerTimeline />
         <Projects />
-        {/* <TechRadar /> */}
         <Interests />
         <Contact />
         <Footer />
