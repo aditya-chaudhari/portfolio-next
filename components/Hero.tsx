@@ -62,7 +62,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 1 }}
       >
-        <a href="https://linkedin.com/in/adityachaudhari" target="_blank">
+        <a href="https://www.linkedin.com/in/aditya-chaudhari5899/" target="_blank">
           <FaLinkedin />
         </a>
         <a href="https://github.com/aditya-chaudhari" target="_blank">

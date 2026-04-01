@@ -16,7 +16,7 @@ function Hero() {
         <span className="text-indigo-400">Worked with brands like Bluehost, HostGator, Network Solutions, Register.com, Domain.com, and BigRock.</span>
       </p>
       <div className="mt-6 flex gap-4 text-indigo-300">
-        <a href="https://linkedin.com/in/adityachaudhari" target="_blank" aria-label="LinkedIn" className="hover:text-indigo-400"><Linkedin /></a>
+        <a href="https://www.linkedin.com/in/aditya-chaudhari5899/" target="_blank" aria-label="LinkedIn" className="hover:text-indigo-400"><Linkedin /></a>
         <a href="https://github.com/aditya-chaudhari" target="_blank" aria-label="GitHub" className="hover:text-indigo-400"><Github /></a>
         <a href="mailto:hello@adityachaudhari.com" className="hover:text-indigo-400"><Mail /></a>
       </div>
@@ -220,7 +220,7 @@ function Contact() {
       <p className="text-indigo-300 mb-4">Reach out via email or LinkedIn to discuss opportunities, collaborations, or just to say hi!</p>
       <div className="flex justify-center gap-6 text-indigo-300">
         <a href="mailto:hello@adityachaudhari.com" className="hover:text-indigo-500"><Mail /> Email</a>
-        <a href="https://linkedin.com/in/adityachaudhari" target="_blank" className="hover:text-indigo-500"><Linkedin /> LinkedIn</a>
+        <a href="https://www.linkedin.com/in/aditya-chaudhari5899/" target="_blank" className="hover:text-indigo-500"><Linkedin /> LinkedIn</a>
         <a href="https://github.com/aditya-chaudhari" target="_blank" className="hover:text-indigo-500"><Github /> GitHub</a>
       </div>
     </section>

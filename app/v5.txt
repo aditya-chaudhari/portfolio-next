@@ -58,7 +58,7 @@ function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.5 }}
       >
-        <a href="https://linkedin.com/in/adityachaudhari" target="_blank" aria-label="LinkedIn" className="hover:text-indigo-400">
+        <a href="https://www.linkedin.com/in/aditya-chaudhari5899/" target="_blank" aria-label="LinkedIn" className="hover:text-indigo-400">
           <FaLinkedin />
         </a>
         <a href="https://github.com/aditya-chaudhari" target="_blank" aria-label="GitHub" className="hover:text-indigo-400">
@@ -224,7 +224,7 @@ function Contact() {
         <a href="mailto:hello@adityachaudhari.com" className="hover:text-indigo-500 flex items-center justify-center">
           <FaEnvelope className="mr-2" size={24} /> Email
         </a>
-        <a href="https://linkedin.com/in/adityachaudhari" target="_blank" className="hover:text-indigo-500 flex items-center justify-center">
+        <a href="https://www.linkedin.com/in/aditya-chaudhari5899/" target="_blank" className="hover:text-indigo-500 flex items-center justify-center">
           <FaLinkedin className="mr-2" size={24} /> LinkedIn
         </a>
         <a href="https://github.com/aditya-chaudhari" target="_blank" className="hover:text-indigo-500 flex items-center justify-center">

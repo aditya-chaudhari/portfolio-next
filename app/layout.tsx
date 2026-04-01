@@ -62,7 +62,7 @@ export default function RootLayout({
                 name: "Newfold Digital",
               },
               sameAs: [
-                "https://linkedin.com/in/adityachaudhari",
+                "https://www.linkedin.com/in/aditya-chaudhari5899/",
                 "https://github.com/aditya-chaudhari",
               ],
             }),

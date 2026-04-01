@@ -9,7 +9,7 @@ export default function Contact() {
         <a href="mailto:hello@adityachaudhari.com" className="hover:text-indigo-500 flex items-center justify-center">
           <FaEnvelope size={30} />
         </a>
-        <a href="https://linkedin.com/in/adityachaudhari" target="_blank" className="hover:text-indigo-500 flex items-center justify-center">
+        <a href="https://www.linkedin.com/in/aditya-chaudhari5899/" target="_blank" className="hover:text-indigo-500 flex items-center justify-center">
           <FaLinkedin size={30} />
         </a>
         <a href="https://github.com/aditya-chaudhari" target="_blank" className="hover:text-indigo-500 flex items-center justify-center">
