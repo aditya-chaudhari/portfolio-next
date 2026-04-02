@@ -1,7 +1,20 @@
+import Image from "next/image";
+import { profile } from "@/lib/site-content";
+
 export default function Footer() {
   return (
-    <footer className="text-indigo-400 text-sm text-center py-6 bg-black border-t border-white/10">
-      <p className="w-full flex items-center justify-center">Made with <img src="/milky-way.png" height="20px" width="20px" className="mx-1" /> by Aditya Chaudhari</p>
+    <footer className="border-t border-outline-variant/10 bg-surface-container-low py-8 text-center text-sm text-on-surface-variant">
+      <p className="flex w-full flex-wrap items-center justify-center gap-x-1 gap-y-1">
+        <span>Made with</span>
+        <Image
+          src="/milky-way.png"
+          width={20}
+          height={20}
+          alt=""
+          className="mx-0.5 opacity-90"
+        />
+        <span>by {profile.name}</span>
+      </p>
     </footer>
   );
 }

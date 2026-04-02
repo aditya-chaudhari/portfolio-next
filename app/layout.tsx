@@ -1,10 +1,18 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist_Mono, Inter, Space_Grotesk } from "next/font/google";
+import { jsonLdPerson, siteKeywords, siteMetaDescription } from "@/lib/site-content";
 import "./globals.css";
 
-// Load Google Fonts
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+/** Stitch design system: headlines (DESIGN.md). */
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+/** Stitch design system: body / UI text. */
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -13,15 +21,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "My Portfolio - Aditya Chaudhari | Senior Software Engineer",
-  description:
-    "Aditya Chaudhari's portfolio showcasing expertise in Full Stack Development, Cloud Infrastructure, CI/CD, Kubernetes, and more.",
-  keywords: "software engineer, full stack, cloud, CI/CD, Kubernetes, AWS, React, Node.js, portfolio, Bluehost, HostGator, Network Solutions, Register.com, Domain.com, BigRock, web hosting, software development",
+  title: "Aditya Chaudhari | Portfolio",
+  description: siteMetaDescription,
+  keywords: siteKeywords,
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
-    title: "My Portfolio - Aditya Chaudhari | Senior Software Engineer",
-    description:
-      "Aditya Chaudhari's portfolio showcasing expertise in Full Stack Development, Cloud Infrastructure, CI/CD, Kubernetes, and more.",
+    title: "Aditya Chaudhari | Portfolio",
+    description: siteMetaDescription,
     url: "https://adityachaudhari.com",
     siteName: "Aditya Chaudhari",
     type: "website",
@@ -42,36 +56,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        {/* Add meta tags, structured data, and other head elements */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
-        {/* Structured Data (JSON-LD for schema.org) */}
+    <html lang="en" className="dark">
+      <body
+        className={`${spaceGrotesk.variable} ${inter.variable} ${geistMono.variable} antialiased`}
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Aditya Chaudhari",
-              url: "https://adityachaudhari.com",
-              jobTitle: "Senior Software Engineer",
-              worksFor: {
-                "@type": "Organization",
-                name: "Newfold Digital",
-              },
-              sameAs: [
-                "https://www.linkedin.com/in/aditya-chaudhari5899/",
-                "https://github.com/aditya-chaudhari",
-              ],
-            }),
+            __html: JSON.stringify(jsonLdPerson),
           }}
         />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
         {children}
       </body>
     </html>

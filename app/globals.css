@@ -1,13 +1,13 @@
+/* Stitch tokens: see stitch_portfolio_website/synthetix_portfolio/DESIGN.md */
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Legacy shadcn bridge (optional use) */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
@@ -17,6 +17,47 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-ring: var(--ring);
+
+  /* Stitch surface system */
+  --color-surface: #0b1326;
+  --color-surface-dim: #0b1326;
+  --color-surface-bright: #31394d;
+  --color-surface-container: #171f33;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container-high: #222a3d;
+  --color-surface-container-lowest: #060e20;
+  --color-surface-container-highest: #2d3449;
+  --color-surface-variant: #2d3449;
+
+  --color-primary-stitch: #c0c1ff;
+  --color-primary-container: #8083ff;
+  --color-on-primary: #1000a9;
+  --color-on-primary-container: #0d0096;
+  --color-secondary: #4cd7f6;
+  --color-secondary-container: #03b5d3;
+  --color-on-secondary-container: #00424e;
+
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #c7c4d7;
+  --color-on-background: #dae2fd;
+  --color-outline: #908fa0;
+  --color-outline-variant: #464554;
+
+  --color-tertiary: #ddb7ff;
+  --color-tertiary-container: #b76dff;
+  --color-error: #ffb4ab;
+
+  --font-headline: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Stitch: sharp containers, pills only for chips */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+  --radius-xl: 0.5rem;
+  --radius-stitch-full: 0.75rem;
 }
 
 :root {
@@ -38,14 +79,19 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: #0b1326;
+  --foreground: #dae2fd;
+  --card: #171f33;
+  --card-foreground: #dae2fd;
+  --primary: #c0c1ff;
+  --primary-foreground: #0d0096;
+  --muted: #222a3d;
+  --muted-foreground: #c7c4d7;
+  --accent: #222a3d;
+  --accent-foreground: #dae2fd;
+  --border: color-mix(in srgb, #464554 22%, transparent);
+  --input: #131b2e;
+  --ring: #8083ff;
 }
 
 @layer base {
@@ -53,11 +99,39 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-surface text-on-surface font-body;
   }
 }
 
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+}
+
+/* Fixed glass nav: anchor targets clear the bar */
+main section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Stitch hero accent (135° indigo → cyan) */
+@layer utilities {
+  .hero-gradient-text {
+    background: linear-gradient(135deg, #c0c1ff 0%, #03b5d3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .stitch-blur-primary {
+    @apply rounded-full bg-primary/10 blur-[120px];
+  }
+
+  .stitch-blur-secondary {
+    @apply rounded-full bg-secondary-container/10 blur-[100px];
+  }
+
+  .stitch-label {
+    @apply font-body text-xs font-bold uppercase tracking-[0.1em] text-secondary;
+  }
 }

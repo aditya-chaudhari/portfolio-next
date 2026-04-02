@@ -1,44 +1,83 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { openSourceProjects, urls, workProjects, type WorkProject } from "@/lib/site-content";
+
+function ProjectCard(props: WorkProject & { className?: string }) {
+  const { title, desc, href, linkLabel, className = "" } = props;
+  return (
+    <article
+      className={`flex h-full flex-col rounded-xl bg-surface-container p-6 ring-1 ring-white/5 transition-colors hover:bg-surface-container-high md:p-8 ${className}`}
+    >
+      <h3 className="font-headline text-lg font-bold text-on-surface md:text-xl">{title}</h3>
+      <p className="mt-3 flex-1 font-body text-sm leading-relaxed text-on-surface-variant md:text-base">
+        {desc}
+      </p>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex w-fit font-body text-xs font-bold uppercase tracking-wider text-primary transition-colors hover:text-secondary"
+        >
+          {linkLabel ?? "View on GitHub"}
+        </a>
+      ) : null}
+    </article>
+  );
+}
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "Domain Guru",
-      desc: "Developed a web app with 4 Micro Frontends (MFE) that allows users to buy domains and complete payments. Utilized Docker and Kubernetes for orchestration."
-    },
-    {
-      title: "Insignia Loyalty Experience",
-      desc: "Built a microservice solution to enhance user engagement, featuring a customizable dashboard for campaigns and addressing customer pain points."
-    },
-    {
-      title: "ServerSentEvents (SSE) Microservice",
-      desc: "Created a microservice implementing real-time text streaming using SSE protocol, event-driven architecture, and pub-sub for scalability."
-    },
-    {
-      title: "Auth Service",
-      desc: "Built a secure auth service using JWT, OAuth, and 2FA for credential management, and automated migration for legacy users."
-    },
-    {
-      title: "Invoicing Service",
-      desc: "Developed a service for managing client payments and generating invoices with automatic payment reminders and multiple templates."
-    }
-  ];
+  const featuredIdx = workProjects.findIndex((p) => p.featured);
+  const fIdx = featuredIdx >= 0 ? featuredIdx : 0;
+  const featured = workProjects[fIdx] ?? null;
+  const restWork = workProjects.filter((_, i) => i !== fIdx);
+  const [second, ...otherWork] = restWork;
 
   return (
-    <section id="projects" className="text-white p-20 bg-black">
-      <h2 className="text-3xl font-bold text-center mb-10">🪐 Space Missions</h2>
-      <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((proj, i) => (
-          <Card
-            key={i}
-            className="bg-indigo-900/20 border border-indigo-500 text-white rounded-xl shadow-xl p-4 hover:shadow-indigo-500/20 hover:scale-[1.02] transition-all duration-300"
+    <section id="projects" className="bg-surface px-4 py-20 sm:px-8 md:px-12 lg:py-24">
+      <div className="mx-auto max-w-7xl">
+        <p className="mb-2 font-body text-xs font-bold uppercase tracking-[0.2em] text-secondary">
+          Selected work
+        </p>
+        <h2 className="font-headline text-3xl font-bold tracking-tighter text-on-surface sm:text-4xl md:text-5xl">
+          Platform &amp; product impact
+        </h2>
+
+        {featured ? (
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
+            <div className="relative md:col-span-8">
+              <div className="pointer-events-none absolute -right-8 -top-8 h-48 w-48 rounded-full bg-primary/5 blur-3xl md:h-64 md:w-64" />
+              <ProjectCard
+                {...featured}
+                className="relative min-h-[280px] justify-between md:min-h-[320px]"
+              />
+            </div>
+            {second ? (
+              <div className="md:col-span-4">
+                <ProjectCard {...second} />
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+
+        {otherWork.length > 0 ? (
+          <div
+            className={`mt-6 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8 ${featured ? "" : "mt-12"}`}
           >
-            <CardContent>
-              <h3 className="text-xl font-semibold mb-2">{proj.title}</h3>
-              <p className="text-indigo-300">{proj.desc}</p>
-            </CardContent>
-          </Card>
-        ))}
+            {otherWork.map((proj) => (
+              <div key={proj.title} className="md:col-span-4">
+                <ProjectCard {...proj} />
+              </div>
+            ))}
+          </div>
+        ) : null}
+
+        <h3 className="mb-6 mt-16 font-headline text-xl font-bold text-on-surface md:mt-20 md:text-2xl">
+          Open source &amp; demos
+        </h3>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {openSourceProjects.map((proj) => (
+            <ProjectCard key={proj.title} {...proj} />
+          ))}
+        </div>
       </div>
     </section>
   );

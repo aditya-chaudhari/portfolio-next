@@ -1,87 +1,67 @@
 "use client";
-import { motion } from "framer-motion";
-import astronautAnim from "../public/lotties/astronaut.json";
-import dynamic from "next/dynamic";
 
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false }); 
+import { motion } from "framer-motion";
+import { experienceTimeline, urls } from "@/lib/site-content";
 
 export default function CareerTimeline() {
-    const timeline = [
-      { year: "2018", role: "Android Intern at Lembark Solutions" },
-      { year: "2020", role: "Software Developer Intern at Endurance International Group" },
-      { year: "2021", role: "Full Stack Engineer at Newfold Digital" },
-      { year: "2022", role: "Software Development Engineer II at Newfold Digital" },
-      { year: "2023", role: "Senior Software Engineer at Newfold Digital" },
-    ];
-  
-    return (
-      <motion.div
-        id="timeline"
-        className="relative mt-16 z-10 bg-gradient-to-r from-indigo-800/30 to-indigo-900/10 border border-white/10 text-white rounded-2xl shadow-xl backdrop-blur-md p-8 pb-20 space-y-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
-        {/* Lottie Animation */}
-        <div className="flex justify-center mb-5">
-          <Lottie animationData={astronautAnim} loop={true} style={{ width: "250px", height: "250px" }} />
-        </div>
-  
-        <h2 className="text-3xl font-bold text-indigo-100 tracking-wide text-center">
-          Career Timeline
+  return (
+    <section
+      id="timeline"
+      className="bg-surface-container-low px-4 py-20 sm:px-8 md:px-12 lg:py-24"
+    >
+      <div className="mx-auto max-w-7xl">
+        <p className="mb-2 font-body text-xs font-bold uppercase tracking-[0.2em] text-secondary">
+          Experience
+        </p>
+        <h2 className="font-headline text-3xl font-bold tracking-tighter text-on-surface sm:text-4xl md:text-5xl">
+          Career timeline
         </h2>
-  
-        <div className="relative mt-10">
-          {/* Center vertical line */}
-          <div className="absolute left-1/2 top-0 transform -translate-x-1/2 w-1 bg-indigo-500/30 h-full z-0" />
-  
-          <div className="space-y-16">
-            {timeline.map((event, index) => {
-              const isLeft = index % 2 === 0;
-              const icon = event.role.includes("Intern") ? "🛰️" : "🛠️";
-  
+
+        <div className="relative mt-14 md:mt-16">
+          <div
+            className="absolute bottom-2 left-[0.4rem] top-2 w-px bg-outline-variant/15 md:left-[0.55rem]"
+            aria-hidden
+          />
+
+          <ul className="relative space-y-10 md:space-y-12">
+            {[...experienceTimeline].reverse().map((event, index) => {
+              const meta = `${event.period} · ${event.location}`;
               return (
-                <motion.div
-                  key={index}
-                  className="relative flex items-center justify-between w-full"
-                  initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                <motion.li
+                  key={event.period + event.title + event.company}
+                  className="relative pl-10 md:pl-12"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.45, delay: index * 0.04 }}
                 >
-                  {/* Left side text */}
-                  <div className={`w-1/2 px-4 ${isLeft ? "text-right" : "text-left"}`}>
-                    {isLeft && (
-                      <>
-                        <span className="text-xl font-semibold text-indigo-100">{event.year}</span>
-                        <p className="text-lg font-medium text-white mt-1 flex justify-end gap-2">
-                          <span className="text-2xl">{icon}</span> {event.role}
-                        </p>
-                      </>
-                    )}
-                  </div>
-  
-                  {/* Dot */}
-                  <div className="relative z-10">
-                    <div className="w-5 h-5 rounded-full bg-yellow-400 border-4 border-white shadow-md" />
-                  </div>
-  
-                  {/* Right side text */}
-                  <div className={`w-1/2 px-4 ${!isLeft ? "text-left" : "text-right"}`}>
-                    {!isLeft && (
-                      <>
-                        <span className="text-xl font-semibold text-indigo-100">{event.year}</span>
-                        <p className="text-lg font-medium text-white mt-1 flex gap-2">
-                          {event.role} <span className="text-2xl">{icon}</span>
-                        </p>
-                      </>
-                    )}
-                  </div>
-                </motion.div>
+                  <span
+                    className="absolute left-0 top-2 flex h-3 w-3 shrink-0 rounded-full border-2 border-surface bg-secondary shadow-[0_0_0_4px_rgba(76,215,246,0.12)] md:top-2.5"
+                    aria-hidden
+                  />
+                  <article className="rounded-xl bg-surface-container p-5 ring-1 ring-white/5 transition-colors hover:bg-surface-container-high md:p-6">
+                    <p className="font-body text-xs font-medium uppercase tracking-wider text-secondary">
+                      {meta}
+                    </p>
+                    <h3 className="mt-2 font-headline text-lg font-bold text-on-surface md:text-xl">
+                      {event.title}
+                    </h3>
+                    <p className="mt-1 font-body text-sm text-on-surface-variant">{event.company}</p>
+                    {event.intern ? (
+                      <p className="mt-2 inline-block rounded-full bg-surface-container-highest px-2 py-0.5 font-body text-[0.65rem] font-bold uppercase tracking-wide text-on-surface-variant">
+                        Internship
+                      </p>
+                    ) : null}
+                    <p className="mt-3 font-body text-sm leading-relaxed text-on-surface-variant md:text-base">
+                      {event.summary}
+                    </p>
+                  </article>
+                </motion.li>
               );
             })}
-          </div>
+          </ul>
         </div>
-      </motion.div>
-    );
-  }
+      </div>
+    </section>
+  );
+}

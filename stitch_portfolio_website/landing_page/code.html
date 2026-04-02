@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#400071",
+                        "tertiary-container": "#b76dff",
+                        "primary-container": "#8083ff",
+                        "on-primary": "#1000a9",
+                        "on-secondary": "#003640",
+                        "outline-variant": "#464554",
+                        "outline": "#908fa0",
+                        "surface-container-high": "#222a3d",
+                        "primary-fixed": "#e1e0ff",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#dae2fd",
+                        "on-primary-fixed": "#07006c",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary": "#490080",
+                        "surface-tint": "#c0c1ff",
+                        "on-surface": "#dae2fd",
+                        "surface-container": "#171f33",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "inverse-on-surface": "#283044",
+                        "surface-dim": "#0b1326",
+                        "on-primary-container": "#0d0096",
+                        "on-secondary-container": "#00424e",
+                        "surface-bright": "#31394d",
+                        "on-background": "#dae2fd",
+                        "tertiary": "#ddb7ff",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#060e20",
+                        "on-tertiary-fixed": "#2c0051",
+                        "surface-container-highest": "#2d3449",
+                        "surface-variant": "#2d3449",
+                        "surface": "#0b1326",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "tertiary-fixed-dim": "#ddb7ff",
+                        "secondary-container": "#03b5d3",
+                        "secondary": "#4cd7f6",
+                        "on-surface-variant": "#c7c4d7",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#001f26",
+                        "inverse-primary": "#494bd6",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#acedff",
+                        "tertiary-fixed": "#f0dbff",
+                        "on-tertiary-fixed-variant": "#6900b3",
+                        "background": "#0b1326",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "primary": "#c0c1ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hero-gradient-text {
+            background: linear-gradient(135deg, #c0c1ff 0%, #03b5d3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/70 backdrop-blur-xl shadow-[0_0_40px_rgba(99,102,241,0.06)] font-['Space_Grotesk'] tracking-tight">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-indigo-400">ORCHESTRATED_INT</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Projects</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Skills</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Experience</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded font-medium active:scale-95 duration-200 hover:text-indigo-300 transition-all">
+                Contact Me
+            </button>
+</div>
+</nav>
+<main class="pt-24 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center px-8 md:px-16 lg:px-24">
+<div class="absolute inset-0 z-0 overflow-hidden">
+<div class="absolute -top-24 -left-24 w-[600px] height-[600px] bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute top-1/2 -right-24 w-[400px] height-[400px] bg-secondary-container/10 blur-[100px] rounded-full"></div>
+</div>
+<div class="relative z-10 max-w-5xl">
+<div class="mb-6 flex items-center gap-4">
+<span class="label-md uppercase tracking-[0.1em] text-secondary font-bold">Senior Software Engineer</span>
+<div class="h-[1px] w-12 bg-outline-variant/30"></div>
+<span class="label-md uppercase tracking-[0.1em] text-on-surface-variant">5+ Years Experience</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] tracking-tighter mb-8">
+                    Architecting <br/>
+<span class="hero-gradient-text">Agentic Systems.</span>
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
+                    Bridging the gap between robust Backend infrastructure and the fluid potential of Agentic AI. I build self-orchestrating pipelines and scalable full-stack ecosystems.
+                </p>
+<div class="flex flex-wrap gap-6">
+<button class="group relative bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-bold flex items-center gap-3 overflow-hidden transition-all hover:pr-10">
+<span>Deploy Agentic AI</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">bolt</span>
+<div class="absolute top-0 left-0 w-full h-[1px] bg-white/20"></div>
+</button>
+<button class="border border-outline-variant/20 text-secondary px-8 py-4 rounded-lg font-bold hover:bg-secondary-container/10 transition-colors">
+                        View Stack
+                    </button>
+</div>
+</div>
+</section>
+<!-- About Me: Asymmetric Layout -->
+<section class="py-24 px-8 md:px-16 lg:px-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
+<div class="lg:w-1/2">
+<h2 class="font-headline text-4xl font-bold mb-8">The Philosophy</h2>
+<div class="space-y-6 text-on-surface-variant leading-loose">
+<p>
+                            I don't just write code; I orchestrate intelligence. My journey over the last 5 years has been a transition from monolithic stability to decentralized agency. 
+                        </p>
+<p>
+                            With a foundation in deep backend engineering and DevOps automation, I now focus on building autonomous agents that don't just follow instructions—they reason through complex workflows to achieve business objectives.
+                        </p>
+<div class="grid grid-cols-2 gap-4 pt-8">
+<div class="p-4 bg-surface-container rounded-lg border-l-4 border-primary">
+<div class="text-3xl font-headline font-bold text-on-surface">99.9%</div>
+<div class="text-sm uppercase tracking-widest text-on-surface-variant">Uptime SLA</div>
+</div>
+<div class="p-4 bg-surface-container rounded-lg border-l-4 border-secondary">
+<div class="text-3xl font-headline font-bold text-on-surface">50+</div>
+<div class="text-sm uppercase tracking-widest text-on-surface-variant">AI Deployments</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 relative group">
+<div class="absolute inset-0 bg-primary/20 -rotate-3 rounded-xl transition-transform group-hover:rotate-0"></div>
+<img alt="Developer workspace" class="relative z-10 w-full h-full object-cover rounded-xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" data-alt="Modern high-tech workspace with multiple monitors displaying lines of code in a dark room with indigo and cyan ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLdNsLCpr-BCH68zzo1pixlj-_v34ds5lmOFfA5MIOpSJ59SBxFfTPsG15dYx-3TQHL8g492H3zSVQzGeJarE1l8-2onZnbZE_SUsxNGAA5IsupcagTnLQdGqC9KFct-yBYaz-aIvyNSEWk91nDecvMdLLGhdBZ9zwhOvLQr5dvwjmHG9SVHhTMVsIDTtIThtuvQNEeXdKiWXwmC9JaCNT7ujZJ6DAXaxF5QCWaVfHfxMUwWLDwx2njzz-GoUEZN67kCc6Fe7ys4o"/>
+</div>
+</div>
+</section>
+<!-- Expertise: Bento Grid -->
+<section class="py-24 px-8 md:px-16 lg:px-24">
+<div class="max-w-7xl mx-auto">
+<div class="flex items-baseline justify-between mb-16">
+<h2 class="font-headline text-5xl font-black tracking-tighter">TECHNICAL CORE</h2>
+<span class="hidden md:block label-md text-outline tracking-[.2em]">02 / SKILLS</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4">
+<!-- AI Strategy (Large) -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container p-8 flex flex-col justify-between group hover:bg-surface-container-high transition-colors border border-outline-variant/10">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h3 class="text-2xl font-headline font-bold mb-4">Agentic AI &amp; LLMs</h3>
+<p class="text-on-surface-variant leading-relaxed">Developing autonomous agent workflows using LangChain, AutoGen, and custom RAG implementations. Expertise in fine-tuning and orchestrating multi-agent systems.</p>
+</div>
+<div class="flex flex-wrap gap-2 mt-8">
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-xs font-bold uppercase tracking-tighter">Vector DBs</span>
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-xs font-bold uppercase tracking-tighter">PyTorch</span>
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-xs font-bold uppercase tracking-tighter">Prompt Eng</span>
+</div>
+</div>
+<!-- Backend (Wide) -->
+<div class="md:col-span-2 bg-surface-container p-8 border border-outline-variant/10 group hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="text-xl font-headline font-bold mb-2">Scalable Backend</h3>
+<p class="text-sm text-on-surface-variant">Rust, Go, and Python microservices with distributed architecture patterns.</p>
+</div>
+<span class="material-symbols-outlined text-secondary">database</span>
+</div>
+</div>
+<!-- DevOps -->
+<div class="bg-surface-container p-8 border border-outline-variant/10 group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-indigo-400 mb-4">cloud_done</span>
+<h3 class="font-headline font-bold mb-2">DevOps</h3>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">Kubernetes / Terraform / CI/CD</p>
+</div>
+<!-- Frontend -->
+<div class="bg-surface-container p-8 border border-outline-variant/10 group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-cyan-400 mb-4">layers</span>
+<h3 class="font-headline font-bold mb-2">Frontend</h3>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">React / Next.js / Three.js</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Node Connector Pipeline Representation -->
+<section class="py-24 px-8 md:px-16 lg:px-24 bg-surface-container-lowest">
+<div class="max-w-4xl mx-auto">
+<h3 class="text-center font-headline text-3xl font-bold mb-16 opacity-50 uppercase tracking-[0.3em]">Deployment Pipeline</h3>
+<div class="relative">
+<div class="absolute left-1/2 top-0 bottom-0 w-[1px] bg-outline-variant/10 -translate-x-1/2"></div>
+<!-- Pipeline Node 1 -->
+<div class="relative flex items-center justify-center mb-12">
+<div class="z-10 bg-surface border border-outline-variant/20 p-6 rounded-lg max-w-sm text-center">
+<span class="text-xs font-label text-primary font-bold uppercase tracking-widest block mb-2">Stage 01</span>
+<h4 class="font-headline text-lg font-bold">Neural Architecture</h4>
+</div>
+</div>
+<!-- Pipeline Node 2 -->
+<div class="relative flex items-center justify-center mb-12">
+<div class="z-10 bg-surface border border-outline-variant/20 p-6 rounded-lg max-w-sm text-center">
+<span class="text-xs font-label text-secondary font-bold uppercase tracking-widest block mb-2">Stage 02</span>
+<h4 class="font-headline text-lg font-bold">Containerized Microservices</h4>
+</div>
+</div>
+<!-- Pipeline Node 3 -->
+<div class="relative flex items-center justify-center">
+<div class="z-10 bg-surface-container-high border-2 border-primary p-8 rounded-lg max-w-sm text-center shadow-[0_0_30px_rgba(128,131,255,0.2)]">
+<span class="material-symbols-outlined text-secondary animate-pulse block mb-4">rocket_launch</span>
+<h4 class="font-headline text-xl font-bold">Production Release</h4>
+<p class="text-xs text-on-surface-variant mt-2">Zero-downtime, global orchestration.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-800/20 bg-slate-950 font-['Inter'] text-sm tracking-wide">
+<div class="tonal-shift bg-slate-900/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-8 gap-6 max-w-7xl mx-auto">
+<div class="text-lg font-black text-slate-200">ORCHESTRATED_INT</div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-cyan-400 transition-colors duration-300" href="#">GitHub</a>
+<a class="text-slate-500 hover:text-cyan-400 transition-colors duration-300" href="#">LinkedIn</a>
+<a class="text-slate-500 hover:text-cyan-400 transition-colors duration-300" href="#">Twitter</a>
+</div>
+<div class="text-slate-500">© 2024 Orchestrated Intelligence. Built for precision.</div>
+<a class="text-indigo-400 hover:text-cyan-400 transition-colors" href="#">Back to Top</a>
+</div>
+</div>
+</footer>
+</body></html>
