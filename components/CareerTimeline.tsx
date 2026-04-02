@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { experienceTimeline, urls } from "@/lib/site-content";
+import { experienceTimeline } from "@/lib/site-content";
 
 export default function CareerTimeline() {
   return (

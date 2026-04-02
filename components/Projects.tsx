@@ -1,4 +1,4 @@
-import { openSourceProjects, urls, workProjects, type WorkProject } from "@/lib/site-content";
+import { openSourceProjects, workProjects, type WorkProject } from "@/lib/site-content";
 
 function ProjectCard(props: WorkProject & { className?: string }) {
   const { title, desc, href, linkLabel, className = "" } = props;
